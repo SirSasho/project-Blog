@@ -4,15 +4,16 @@
 }
 
 .login {
-    padding-bottom: 300px;
-}
-
-#login-email {
     height: 25px;
     width: 300px;
 }
 
-#login-password {
+.register-form {
+    padding-top: 100px;
+    padding-left: 700px;
+}
+
+.register {
     height: 25px;
     width: 300px;
 }
