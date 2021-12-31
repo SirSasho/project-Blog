@@ -1,3 +1,18 @@
-h1 {
-    color: red;
+.login-form {
+    padding-top: 150px;
+    padding-left: 700px;
+}
+
+.login {
+    padding-bottom: 300px;
+}
+
+#login-email {
+    height: 25px;
+    width: 300px;
+}
+
+#login-password {
+    height: 25px;
+    width: 300px;
 }
