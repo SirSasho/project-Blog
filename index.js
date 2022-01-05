@@ -100,54 +100,11 @@ if (currentPage == "login") {
     const logOut = document.querySelector(".logOut");
     const creatPost = document.getElementById("creat-post");
     const logIn = document.getElementById("log-in");
+    const singlePost = document.getElementById("single");
 
     logIn.addEventListener("click", event => {
         location.href = `/login.html`;
     });
-
-    if (window.location.search == "") {
-        listPost.innerHTML = ""
-        blogPosts.forEach(({ title, comments, date }) => {
-            const d = new Date(date)
-            listPost.innerHTML += `
-                <li><a href="/index.html?title=${title}">
-                    <h3>${title}</h3>
-                    <p>From: ${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}</p>
-                    <p> Comment Number: ${comments.length}</p>
-                </a></li>`
-        });
-    } else {
-        document.getElementById("back-main").removeAttribute("hidden");
-
-        const searchTitle = window.location.search.replace("?title=", "")
-        const searchPost = blogPosts.find(({ title }) => title == searchTitle)
-
-        if (searchTitle) {
-            const { title, comments, date, user, post } = searchPost;
-            const d = new Date(date)
-            let c = comments.reduce((total, { cUser, cText, cDate }) => {
-                const cd = new Date(cDate)
-                return `${total}<div>
-                        <h2>${cUser}</h2>
-                        <h3>${cd.getDate()}/${(cd.getMonth()+1)}/${cd.getFullYear()}</h3>
-                        <h4>${cText}</h4>
-                    </div>`
-            }, "")
-            if (c == "") {
-                c = "No Comments"
-            }
-            listPost.innerHTML = `
-                    <h2>${title}</h2>
-                    <h2>${user}</h2>
-                    <h3>From: ${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}</h3>
-                    <h4>Post: ${post}</h4>
-                    <div> Comments: ${c}</div>
-                `
-
-        } else {
-            alert("No Post Found!")
-        }
-    }
 
     if (isLogged()) {
         logOut.removeAttribute("hidden");
@@ -161,4 +118,72 @@ if (currentPage == "login") {
     } else {
         logIn.removeAttribute("hidden")
     }
+
+    if (window.location.search == "") {
+        listPost.innerHTML = ""
+        blogPosts.forEach(({ title, comments, date }) => {
+            const d = new Date(date)
+            listPost.innerHTML += `
+                <li class= "post-element"><a id="post-elements" href="/index.html?title=${title}">
+                    <h3>${title}</h3>
+                    <p>From: ${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}</p>
+                    <p> Comment Number: ${comments.length}</p>
+                </a></li>`
+        });
+    } else {
+        document.getElementById("back-main").removeAttribute("hidden");
+        const addComment = document.getElementById("add-comment");
+        const commentValue = document.getElementById("value-comment");
+        const submitComment = document.getElementById("submit-comment");
+        if (isLogged()) {
+            addComment.removeAttribute("hidden");
+        }
+
+        addComment.addEventListener("click", event => {
+            commentValue.removeAttribute("hidden");
+            submitComment.removeAttribute("hidden")
+
+        })
+
+        const searchTitle = window.location.search.replace("?title=", "")
+        const searchPost = blogPosts.find(({ title }) => title == searchTitle)
+
+        if (searchTitle) {
+            const { title, comments, date, user, post } = searchPost;
+
+            function fillData() {
+                const d = new Date(date)
+                let c = comments.reduce((total, { cUser, cText, cDate }) => {
+                    const cd = new Date(cDate)
+                    return `${total}<div>
+                            <h2>${cUser}</h2>
+                            <h3>${cd.getDate()}/${(cd.getMonth()+1)}/${cd.getFullYear()}</h3>
+                            <h4>${cText}</h4>
+                        </div>`
+                }, "")
+                if (c == "") {
+                    c = "No Comments"
+                }
+                singlePost.innerHTML = `
+                    <h2>${title}</h2>
+                    <h2>${user}</h2>
+                    <h3>From: ${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}</h3>
+                    <h4>Post: ${post}</h4>
+                    <div> Comments: ${c}</div>
+                `
+            }
+            fillData()
+            submitComment.addEventListener("click", event => {
+                comments.push({ cUser: JSON.parse(localStorage.getItem("blogLogin"))["email"], cText: commentValue.value, cDate: Date.now() })
+                fillData()
+                searchPost.comments = comments
+                localStorage.setItem("blogPosts", JSON.stringify(blogPosts))
+            })
+
+        } else {
+            alert("No Post Found!")
+        }
+    }
+
+
 }
