@@ -1,9 +1,9 @@
 #title {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding-left: 700px;
     padding-top: 30px;
     border-bottom: orange;
     border-bottom-style: solid;
+    text-align: center;
 }
 
 #log-in {
@@ -12,17 +12,18 @@
 }
 
 .logOut {
-    width: 80px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
+    margin-left: 1695px;
 }
 
-#back-login {
-    padding-left: 280px;
+.back {
+    padding-left: 320px;
     text-decoration: none;
 }
 
 #registernow {
-    margin-left: 120px;
+    margin-left: 160px;
     text-decoration: none;
 }
 
@@ -30,10 +31,10 @@
     background-color: whitesmoke;
 }
 
-.login-form {
+.form {
     margin-top: 120px;
-    margin-left: 700px;
-    margin-right: 840px;
+    margin-left: 750px;
+    margin-right: 750px;
     padding-top: 20px;
     padding-left: 20px;
     padding-bottom: 20px;
@@ -43,44 +44,24 @@
 
 .login {
     height: 25px;
-    width: 300px;
-}
-
-#login-submit {
-    background-color: blue;
-    color: white;
-    height: 30px;
-    width: 250px;
-    margin-left: 25px;
-    border-radius: 5%;
+    width: 350px;
 }
 
 #register-body {
     background-color: whitesmoke;
 }
 
-.register-form {
-    margin-top: 120px;
-    margin-left: 700px;
-    margin-right: 840px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    background-color: white;
-    border-radius: 10%;
-}
-
 .register {
     height: 25px;
-    width: 300px;
+    width: 350px;
 }
 
-#register-submit {
-    background-color: blue;
+.submit-form {
+    background-color: orange;
     color: white;
     height: 30px;
     width: 250px;
-    margin-left: 25px;
+    margin-left: 60px;
     border-radius: 5%;
 }
 
@@ -113,4 +94,58 @@
     color: white;
     font-size: 20px;
     background-color: blue;
+}
+
+#list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+}
+
+.post-element {
+    width: 200px;
+}
+
+#post-elements {
+    text-decoration: none;
+}
+
+#creat-post {
+    width: 100px;
+    height: 50px;
+}
+
+.single-post {}
+
+#title-single-post {
+    text-align: center;
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#value-single-post {
+    font-size: 30px;
+    background-color: whitesmoke;
+    height: 100px;
+    text-align: start;
+}
+
+#back-main {
+    text-decoration: none;
+    margin-left: 1850px;
+}
+
+.comments-wrap {
+    margin-top: 150px;
+}
+
+#comm {
+    font-size: 35px;
+}
+
+#comment-value {
+    font-size: 25px;
 }
