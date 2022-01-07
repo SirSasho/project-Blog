@@ -114,7 +114,10 @@ if (currentPage == "login") {
             alert("click")
             location.href = `/index.html`;
         })
-        console.log(isLogged())
+        creatPost.addEventListener("click", event => {
+                location.href = `./post.html`
+            })
+            // console.log(isLogged())
     } else {
         logIn.removeAttribute("hidden")
     }
@@ -156,21 +159,35 @@ if (currentPage == "login") {
                 let c = comments.reduce((total, { cUser, cText, cDate }) => {
                     const cd = new Date(cDate)
                     return `${total}<div>
-                            <h2>${cUser}</h2>
-                            <h3>${cd.getDate()}/${(cd.getMonth()+1)}/${cd.getFullYear()}</h3>
-                            <h4>${cText}</h4>
+                            <p id= "comment-value">
+                            ${cText} - 
+                            ${cUser} 
+                            ${cd.getDate()}/${(cd.getMonth()+1)}/${cd.getFullYear()}
+                            </p>
+                            
                         </div>`
                 }, "")
                 if (c == "") {
                     c = "No Comments"
                 }
                 singlePost.innerHTML = `
-                    <h2>${title}</h2>
-                    <h2>${user}</h2>
-                    <h3>From: ${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}</h3>
-                    <h4>Post: ${post}</h4>
-                    <div> Comments: ${c}</div>
+                    <div class = "single-post">
+                    <h1 id = "title-single-post">${title}</h1>
+                    <p id = "value-single-post">${post}</p>  
+                    </div>                
+                    <div class = "comments-wrap"><p id = "comm"> Comments:</p> ${c}</div>
                 `
+
+                //     singlePost.innerHTML = `
+                //     <div class = "single-post">
+                //     <h2 id = "title-single-post">${title}</h2>
+                //     <h2>${user}</h2>
+                //     <h3>From: ${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}</h3>
+                //     <h4>Post: ${post}</h4>
+                //     </div>
+                //     <div> Comments: ${c}</div>
+                // `
+
             }
             fillData()
             submitComment.addEventListener("click", event => {
