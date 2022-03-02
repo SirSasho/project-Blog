@@ -6,6 +6,14 @@
     text-align: center;
 }
 
+.log-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+}
 #log-in {
     width: 80px;
     height: 40px;
@@ -14,7 +22,6 @@
 .logOut {
     width: 100px;
     height: 50px;
-    margin-left: 1695px;
 }
 
 .back {
@@ -65,16 +72,21 @@
     border-radius: 5%;
 }
 
-#title-post {
-    width: 350px;
-    height: 40px;
-    margin-top: 50px;
-    margin-left: 700px;
-    font-size: 30px;
+.post-input{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
-#post {
-    margin-left: 350px;
+#title-post {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 350px;
+    height: 40px;
+    font-size: 30px;
 }
 
 #body {
@@ -88,7 +100,8 @@
 }
 
 #submit-post {
-    margin-left: 840px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 80px;
     height: 40px;
     color: white;
@@ -118,7 +131,9 @@
     height: 50px;
 }
 
-.single-post {}
+.single-post {
+    height: auto;
+}
 
 #title-single-post {
     text-align: center;
@@ -129,17 +144,16 @@
 #value-single-post {
     font-size: 30px;
     background-color: whitesmoke;
-    height: 100px;
     text-align: start;
+    padding: 10px;
 }
 
 #back-main {
     text-decoration: none;
-    margin-left: 1850px;
 }
 
 .comments-wrap {
-    margin-top: 150px;
+    margin-top: 30px;
 }
 
 #comm {
