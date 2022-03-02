@@ -1,0 +1,16 @@
+[
+    {
+        "title": "titleValue",
+        "post": "postValue",
+        "user": "currentUser",
+        "date": "10.02.2022",
+        "comments": []
+    },
+    {
+        "title": "titleValue1",
+        "post": "postValue1",
+        "user": "currentUser1",
+        "date": "10.02.2022",
+        "comments": []
+    }
+]
